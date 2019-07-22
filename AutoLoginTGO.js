@@ -1,8 +1,11 @@
+//npm run test
+
 require('chromedriver');
 const assert = require('assert');
 var addZero = require('add-zero');
-
 const {Builder, Key, By, until} = require('selenium-webdriver');
+
+
 
 describe('Try Login TGO', function () {
     let driver;
@@ -28,12 +31,13 @@ describe('Try Login TGO', function () {
         await driver.get('https://tgo.thsrc.com.tw/login.html');
         await driver.findElement(By.id('loginID')).sendKeys('H125235230', Key.RETURN);
         await driver.findElement(By.id('pwd')).sendKeys('ck608599', Key.RETURN);
-        while(true){
+        //while(true){
             console.log('****已按下登入****');
             await driver.findElement(By.id('login_btn')).click();//login_btn
-        }
+        //}
         title = await driver.getTitle();
-       // assert.equal(title, 'selenium - Google Search');
+       assert.equal(title, '高鐵會員TGo');
+       await driver.findElement(By.xpath("//a[@onclick='toPage_token('offers.html')']")).click();
     });
-    //driver&&driver.quit();
+    //driver&&driver.quit();  
 })

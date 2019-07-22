@@ -1,3 +1,5 @@
+//npm run test
+
 require('chromedriver');
 const assert = require('assert');
 const {Builder, Key, By, until} = require('selenium-webdriver');
